@@ -40,7 +40,7 @@
             background-color: #e3f2fd;
             color: #1976d2;
         }
-        
+
         .tab.active {
             background-color: #4CAF50;
             color: white;
@@ -91,7 +91,7 @@
     <script>
         async function fetchSites() {
             try {
-                const response = await fetch('https://raw.githubusercontent.com/justcharlzG/DualAIHub/refs/heads/main/sites.json');
+                const response = await fetch('/sites.json');
                 const sites = await response.json();
                 initializeTabs(sites);
             } catch (error) {
