@@ -91,7 +91,7 @@
     <script>
         async function fetchSites() {
             try {
-                const response = await fetch('/sites.json');
+                const response = await fetch('./sites.json');
                 const sites = await response.json();
                 initializeTabs(sites);
             } catch (error) {
