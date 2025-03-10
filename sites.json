@@ -17,5 +17,26 @@
         "name": "豆包",
         "url": "https://doubao.com/",
         "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色"
+    },
+    {
+        "name": "deepseek",
+        "url": "https://chat.deepseek.com/",
+        "show": false
+    },
+    {
+        "name": "ChatGPT",
+        "url": "https://chatgpt.com/",
+        "show": false
+    },
+    {
+        "name": "Gemini",
+        "url": "https://gemini.google.com/",
+        "show": false
+    },
+    {
+        "name": "perplexity",
+        "url": "https://www.perplexity.ai/",
+        "tip": "专业提问",
+        "show": false
     }
 ]
