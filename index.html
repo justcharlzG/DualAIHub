@@ -11,19 +11,18 @@
             padding: 0;
             background-color: #f9f9f9;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            width: 100%;
-        }
         .tab-container {
             display: flex;
-            gap: 10px;
             padding: 10px;
             background-color: #fff;
             border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
         }
         .tab {
             padding: 8px 16px;
@@ -39,12 +38,12 @@
         }
         .iframe-container {
             display: flex;
-            width: 100%;
-            height: calc(100vh - 120px);
+            height: calc(100vh - 60px);
         }
         .iframe-wrapper {
             flex: 1;
             display: none;
+            height: 100%;
         }
         .iframe-wrapper.visible {
             display: block;
@@ -57,10 +56,9 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>集成的网页</h1>
-    </header>
-    <div class="tab-container" id="tabContainer"></div>
+    <div class="tab-container">
+        <div class="tabs" id="tabContainer"></div>
+    </div>
     <div class="iframe-container" id="iframeContainer"></div>
 
     <script>
@@ -77,47 +75,69 @@
         function initializeTabs(sites) {
             const tabContainer = document.getElementById('tabContainer');
             const iframeContainer = document.getElementById('iframeContainer');
+            
+            // 从localStorage获取激活状态
+            let activeStates = [];
+            try {
+                activeStates = JSON.parse(localStorage.getItem('activeTabStates')) || [];
+            } catch (e) {
+                activeStates = [];
+            }
+
+            // 如果没有存储的状态或长度不匹配，初始化为全部显示
+            if (!activeStates.length || activeStates.length !== sites.length) {
+                activeStates = new Array(sites.length).fill(true);
+            }
 
             sites.forEach((site, index) => {
                 // 创建标签
                 const tab = document.createElement('div');
-                tab.className = 'tab';
+                tab.className = `tab ${activeStates[index] ? 'active' : ''}`;
                 tab.textContent = site.name;
                 tab.onclick = () => toggleIframe(index);
                 tabContainer.appendChild(tab);
 
                 // 创建iframe包装器
                 const iframeWrapper = document.createElement('div');
-                iframeWrapper.className = 'iframe-wrapper';
+                iframeWrapper.className = `iframe-wrapper ${activeStates[index] ? 'visible' : ''}`;
                 
                 // 创建iframe
                 const iframe = document.createElement('iframe');
                 iframe.src = site.url;
                 iframeWrapper.appendChild(iframe);
                 iframeContainer.appendChild(iframeWrapper);
-
-                // 默认显示所有iframe
-                toggleIframe(index, true);
             });
+
+            // 调整可见iframe的宽度
+            updateIframeWidths();
         }
 
-        function toggleIframe(index, forceShow = false) {
+        function toggleIframe(index) {
             const tabs = document.querySelectorAll('.tab');
             const iframes = document.querySelectorAll('.iframe-wrapper');
             
-            if (forceShow) {
-                tabs[index].classList.add('active');
-                iframes[index].classList.add('visible');
-            } else {
-                tabs[index].classList.toggle('active');
-                iframes[index].classList.toggle('visible');
-            }
-            
-            // 调整可见iframe的宽度
+            // 切换状态
+            tabs[index].classList.toggle('active');
+            iframes[index].classList.toggle('visible');
+
+            // 保存状态到localStorage
+            const activeStates = Array.from(tabs).map(tab => tab.classList.contains('active'));
+            localStorage.setItem('activeTabStates', JSON.stringify(activeStates));
+
+            // 更新iframe宽度
+            updateIframeWidths();
+        }
+
+        function updateIframeWidths() {
             const visibleIframes = document.querySelectorAll('.iframe-wrapper.visible');
-            visibleIframes.forEach(iframe => {
-                iframe.style.width = `${100 / visibleIframes.length}%`;
-            });
+            const visibleCount = visibleIframes.length;
+            
+            if (visibleCount > 0) {
+                const width = `${100 / visibleCount}%`;
+                visibleIframes.forEach(wrapper => {
+                    wrapper.style.width = width;
+                });
+            }
         }
 
         // 页面加载时获取数据
