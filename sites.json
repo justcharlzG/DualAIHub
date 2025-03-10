@@ -1,19 +1,65 @@
 [
     {
         "name": "kimi",
-        "url": "https://kimi.moonshot.cn/"
+        "url": "https://kimi.moonshot.cn/",
+        "tip": "在智能对话和文本处理方面具备一定实力，交互体验不断提升"
     },
     {
         "name": "在问",
         "url": "https://zaiwen.xueban.org.cn/chat/working-edition"
     },
     {
-        "name": "豆包",
-        "url": "https://www.doubao.com/chat/"
-    },
-    {
         "name": "秘塔AI搜索",
         "url": "https://metaso.cn/",
-        "tip": "科研"
+        "tip": "搜索结果精准，智能推荐"
+    },
+    {
+        "name": "deepseek",
+        "url": "https://chat.deepseek.com/"
+    },
+    {
+        "name": "ChatGPT",
+        "url": "https://chatgpt.com/",
+        "tip": "作为大语言模型领域的开拓者之一，功能全面，在全球范围内有极高的知名度和广泛的用户基础"
+    },
+    {
+        "name": "豆包",
+        "url": "https://doubao.com/",
+        "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色"
+    },
+    {
+        "name": "Gemini",
+        "url": " 暂未查到有统一对应某个工具的官网，https://www.gemini.edu/是 Gemini 天文台官网 ",
+        "tip": "谷歌推出的多模态大模型，具备强大的多模态处理能力，潜力巨大"
+    },
+    {
+        "name": "通义千问",
+        "url": "https://chat.qwenlm.ai/",
+        "tip": "背靠阿里，拥有海量数据支撑，在语言理解和生成方面表现良好，且不断更新迭代"
+    },
+    {
+        "name": "文心一言",
+        "url": "https://yiyan.baidu.com/",
+        "tip": "依托百度的技术和资源，在中文自然语言处理领域优势明显，与百度系产品有较好的整合"
+    },
+    {
+        "name": "Claude",
+        "url": "https://www.anthropic.com/claude-in-slack",
+        "tip": "在语言交互方面能力较强，能够处理复杂的任务，在企业级应用中有一定的市场"
+    },
+    {
+        "name": "SparkDesk",
+        "url": "https://www.xunfeiai.com/product/sparkdesk",
+        "tip": "科大讯飞推出，有自身的语音和语言处理技术优势，功能不断完善中"
+    },
+    {
+        "name": "智谱清言",
+        "url": "https://chatglm.cn/或www.zhispedia.com",
+        "tip": "基于知识图谱技术，提供高质量的内容和知识服务"
+    },
+    {
+        "name": "腾讯元宝",
+        "url": "https://yuanbao.tencent.com/",
+        "tip": "借助腾讯的生态资源，在语言交互和内容生成上有一定竞争力"
     }
 ]
