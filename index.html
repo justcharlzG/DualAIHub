@@ -23,6 +23,7 @@
         .tabs {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
         .tab {
             padding: 8px 16px;
@@ -30,6 +31,12 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             background-color: #f5f5f5;
+            text-decoration: none;
+            color: inherit;
+        }
+        .tab.link {
+            background-color: #e3f2fd;
+            color: #1976d2;
         }
         .tab.active {
             background-color: #4CAF50;
@@ -76,7 +83,9 @@
             const tabContainer = document.getElementById('tabContainer');
             const iframeContainer = document.getElementById('iframeContainer');
             
-            // 从localStorage获取激活状态
+            // 只为show为true的站点存储状态
+            const iframeSites = sites.filter(site => site.show !== false);
+            
             let activeStates = [];
             try {
                 activeStates = JSON.parse(localStorage.getItem('activeTabStates')) || [];
@@ -84,47 +93,55 @@
                 activeStates = [];
             }
 
-            // 如果没有存储的状态或长度不匹配，初始化为全部显示
-            if (!activeStates.length || activeStates.length !== sites.length) {
-                activeStates = new Array(sites.length).fill(true);
+            if (!activeStates.length || activeStates.length !== iframeSites.length) {
+                activeStates = new Array(iframeSites.length).fill(true);
             }
 
-            sites.forEach((site, index) => {
-                // 创建标签
-                const tab = document.createElement('div');
-                tab.className = `tab ${activeStates[index] ? 'active' : ''}`;
-                tab.textContent = site.name;
-                tab.onclick = () => toggleIframe(index);
-                tabContainer.appendChild(tab);
+            let iframeIndex = 0;
+            sites.forEach((site) => {
+                if (site.show === false) {
+                    // 创建链接
+                    const link = document.createElement('a');
+                    link.href = site.url;
+                    link.className = 'tab link';
+                    link.textContent = site.name;
+                    link.target = '_blank';
+                    tabContainer.appendChild(link);
+                } else {
+                    // 创建iframe标签
+                    const tab = document.createElement('div');
+                    tab.className = `tab ${activeStates[iframeIndex] ? 'active' : ''}`;
+                    tab.textContent = site.name;
+                    tab.onclick = () => toggleIframe(iframeIndex);
+                    tabContainer.appendChild(tab);
 
-                // 创建iframe包装器
-                const iframeWrapper = document.createElement('div');
-                iframeWrapper.className = `iframe-wrapper ${activeStates[index] ? 'visible' : ''}`;
-                
-                // 创建iframe
-                const iframe = document.createElement('iframe');
-                iframe.src = site.url;
-                iframeWrapper.appendChild(iframe);
-                iframeContainer.appendChild(iframeWrapper);
+                    // 创建iframe包装器
+                    const iframeWrapper = document.createElement('div');
+                    iframeWrapper.className = `iframe-wrapper ${activeStates[iframeIndex] ? 'visible' : ''}`;
+                    
+                    // 创建iframe
+                    const iframe = document.createElement('iframe');
+                    iframe.src = site.url;
+                    iframeWrapper.appendChild(iframe);
+                    iframeContainer.appendChild(iframeWrapper);
+                    
+                    iframeIndex++;
+                }
             });
 
-            // 调整可见iframe的宽度
             updateIframeWidths();
         }
 
         function toggleIframe(index) {
-            const tabs = document.querySelectorAll('.tab');
+            const tabs = document.querySelectorAll('.tab:not(.link)');
             const iframes = document.querySelectorAll('.iframe-wrapper');
             
-            // 切换状态
             tabs[index].classList.toggle('active');
             iframes[index].classList.toggle('visible');
 
-            // 保存状态到localStorage
             const activeStates = Array.from(tabs).map(tab => tab.classList.contains('active'));
             localStorage.setItem('activeTabStates', JSON.stringify(activeStates));
 
-            // 更新iframe宽度
             updateIframeWidths();
         }
 
@@ -140,7 +157,6 @@
             }
         }
 
-        // 页面加载时获取数据
         fetchSites();
     </script>
 </body>
