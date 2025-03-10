@@ -1,0 +1,27 @@
+[
+    {
+        "name": "kimi",
+        "url": "https://kimi.moonshot.cn/"
+    },
+    {
+        "name": "在问",
+        "url": "https://zaiwen.xueban.org.cn/chat/working-edition"
+    },
+    {
+        "name": "豆包",
+        "url": "https://www.doubao.com/chat/"
+    },
+    {
+        "name": "豆包",
+        "url": "https://www.doubao.com/chat/",
+    },
+    {
+        "name": "秘塔AI搜索",
+        "url": "https://metaso.cn/",
+        "tip": "科研"
+    },
+    {
+        "name": "grok",
+        "url": "https://grok.com/"
+    }
+]
