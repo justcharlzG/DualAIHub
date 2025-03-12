@@ -23,6 +23,11 @@
         "url": "https://bot.n.cn/"
     },
     {
+        "name": "claude3.7",
+        "url": "https://claude.ai/",
+        "show": false
+    },
+    {
         "name": "deepseek",
         "url": "https://chat.deepseek.com/",
         "show": false
@@ -43,4 +48,5 @@
         "tip": "专业提问",
         "show": false
     }
+
 ]
