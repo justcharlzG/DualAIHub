@@ -2,25 +2,31 @@
     {
         "name": "kimi",
         "url": "https://kimi.moonshot.cn/",
-        "tip": "在智能对话和文本处理方面具备一定实力，交互体验不断提升"
+        "tip": "在智能对话和文本处理方面具备一定实力，交互体验不断提升",
+        "show": false
     },
     {
         "name": "在问",
-        "url": "https://zaiwen.xueban.org.cn/chat/working-edition"
+        "url": "https://zaiwen.xueban.org.cn/chat/working-edition",
+        "show": false
     },
     {
         "name": "秘塔AI搜索",
         "url": "https://metaso.cn/",
-        "tip": "搜索结果精准，智能推荐"
+        "tip": "搜索结果精准，智能推荐",
+        "show": false
     },
     {
         "name": "豆包",
         "url": "https://doubao.com/",
-        "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色"
+        "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色",
+        "show": false
     },
     {
         "name": "纳米-满血deepseek",
-        "url": "https://bot.n.cn/"
+        "url": "https://bot.n.cn/",
+        "show": false
+
     },
     {
         "name": "claude3.7",
