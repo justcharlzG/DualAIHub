@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI助手网站合集</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: #c0e0ff;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            position: relative;
+            flex-grow: 1;
+            max-width: 500px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            padding-left: 55px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.3rem;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px 30px;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #4facfe;
+        }
+        
+        .stat-card .label {
+            color: #c0e0ff;
+            font-size: 1.1rem;
+        }
+        
+        .table-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            margin-bottom: 50px;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        thead {
+            background: linear-gradient(to right, rgba(44, 62, 80, 0.7), rgba(74, 100, 145, 0.7));
+        }
+        
+        th {
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        
+        tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        td {
+            padding: 16px 20px;
+            font-size: 1rem;
+            color: #e0f0ff;
+        }
+        
+        .name-cell {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(79, 172, 254, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #4facfe;
+            font-size: 1.2rem;
+        }
+        
+        .url-cell a {
+            display: inline-block;
+            background: rgba(44, 111, 219, 0.15);
+            color: #8fc1ff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            margin: 3px 5px 3px 0;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            border: 1px solid rgba(44, 111, 219, 0.3);
+        }
+        
+        .url-cell a:hover {
+            background: rgba(44, 111, 219, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tip-cell {
+            color: #a0d0ff;
+            font-style: italic;
+        }
+        
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #8fc1ff;
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            animation: spin 1.5s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            th, td {
+                padding: 12px 15px;
+            }
+            
+            .stat-card {
+                min-width: 150px;
+                padding: 15px 20px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-btn {
+                justify-content: center;
+                padding: 12px;
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        tbody tr {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> AI助手网站合集</h1>
+            <p>探索最先进的AI对话助手和智能搜索工具，提升您的工作效率和学习体验</p>
+        </header>
+        
+        <div class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="搜索AI助手名称或特点...">
+            </div>
+            <button class="filter-btn">
+                <i class="fas fa-filter"></i> 筛选
+            </button>
+            <button class="filter-btn" id="sortBtn">
+                <i class="fas fa-sort-alpha-down"></i> 排序
+            </button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number" id="totalCount">10</div>
+                <div class="label">AI助手总数</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="urlCount">12</div>
+                <div class="label">网站地址</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="featuredCount">8</div>
+                <div class="label">特色功能</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100%</div>
+                <div class="label">免费访问</div>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">AI助手名称</th>
+                        <th style="width: 40%;">网站地址</th>
+                        <th style="width: 35%;">特点描述</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="3" class="loading">
+                            <i class="fas fa-spinner"></i>
+                            <p>正在加载AI助手数据...</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 AI助手网站合集 | 数据实时更新 | 最后更新时间: <span id="updateDate"></span></p>
+        </div>
+    </div>
+    
+    <script>
+        // 更新日期
+        document.getElementById('updateDate').textContent = new Date().toLocaleDateString('zh-CN', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // 获取表格主体元素
+        const tableBody = document.getElementById('tableBody');
+        const searchInput = document.getElementById('searchInput');
+        const totalCount = document.getElementById('totalCount');
+        const urlCount = document.getElementById('urlCount');
+        const featuredCount = document.getElementById('featuredCount');
+        const sortBtn = document.getElementById('sortBtn');
+        
+        let sitesData = [];
+        let sortAscending = true;
+        
+        // 渲染表格函数
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+            
+            if (data.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="3" style="text-align: center; padding: 40px; color: #a0d0ff;">
+                            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                            <h3>未找到匹配的AI助手</h3>
+                            <p>请尝试其他搜索关键词</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+                
+                // 名称列
+                const nameCell = document.createElement('td');
+                nameCell.className = 'name-cell';
+                nameCell.innerHTML = `
+                    <div class="icon">${item.name.charAt(0)}</div>
+                    <div>${item.name}</div>
+                `;
+                
+                // URL列 - 支持数组和字符串
+                const urlCell = document.createElement('td');
+                urlCell.className = 'url-cell';
+                
+                if (Array.isArray(item.url)) {
+                    item.url.forEach(url => {
+                        urlCell.innerHTML += `<a href="${url}" target="_blank" title="访问${item.name}">${url}</a>`;
+                    });
+                } else {
+                    urlCell.innerHTML = `<a href="${item.url}" target="_blank" title="访问${item.name}">${item.url}</a>`;
+                }
+                
+                // 特点列
+                const tipCell = document.createElement('td');
+                tipCell.className = 'tip-cell';
+                tipCell.textContent = item.tip || '暂无描述';
+                
+                // 将单元格添加到行
+                row.appendChild(nameCell);
+                row.appendChild(urlCell);
+                row.appendChild(tipCell);
+                
+                // 添加动画延迟
+                row.style.animationDelay = `${index * 0.05}s`;
+                
+                // 将行添加到表格
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // 更新统计信息
+        function updateStats(data) {
+            totalCount.textContent = data.length;
+            
+            // 计算URL总数
+            let urlTotal = 0;
+            data.forEach(item => {
+                if (Array.isArray(item.url)) {
+                    urlTotal += item.url.length;
+                } else {
+                    urlTotal += 1;
+                }
+            });
+            urlCount.textContent = urlTotal;
+            
+            // 计算有描述的数量
+            const featured = data.filter(item => item.tip).length;
+            featuredCount.textContent = featured;
+        }
+        
+        // 排序功能
+        function sortData() {
+            sortAscending = !sortAscending;
+            
+            sitesData.sort((a, b) => {
+                const nameA = a.name.toLowerCase();
+                const nameB = b.name.toLowerCase();
+                
+                if (sortAscending) {
+                    return nameA.localeCompare(nameB);
+                } else {
+                    return nameB.localeCompare(nameA);
+                }
+            });
+            
+            renderTable(sitesData);
+            updateStats(sitesData);
+            
+            // 更新排序按钮图标
+            const icon = sortBtn.querySelector('i');
+            icon.className = sortAscending ? 
+                'fas fa-sort-alpha-down' : 'fas fa-sort-alpha-up';
+        }
+        
+        // 搜索功能
+        function searchData() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            const filteredData = sitesData.filter(item => {
+                const nameMatch = item.name.toLowerCase().includes(searchTerm);
+                const tipMatch = item.tip ? item.tip.toLowerCase().includes(searchTerm) : false;
+                
+                // 检查URL是否匹配
+                let urlMatch = false;
+                if (Array.isArray(item.url)) {
+                    urlMatch = item.url.some(url => url.toLowerCase().includes(searchTerm));
+                } else {
+                    urlMatch = item.url.toLowerCase().includes(searchTerm);
+                }
+                
+                return nameMatch || tipMatch || urlMatch;
+            });
+            
+            renderTable(filteredData);
+            updateStats(filteredData);
+        }
+        // 获取站点数据
+        async function fetchSites() {
+            try {
+                const response = await fetch('./sites.json');
+                const sites = await response.json();
+
+                // 保存到全局变量
+                sitesData = sites;
+
+                // 渲染表格和统计信息
+                renderTable(sitesData);
+                updateStats(sitesData);
+
+                // 添加事件监听器（只初始化一次）
+                searchInput.addEventListener('input', searchData);
+                sortBtn.addEventListener('click', sortData);
+
+            } catch (error) {
+                console.error('Error fetching sites:', error);
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="3" style="text-align: center; padding: 40px; color: #ff8080;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                            <p>加载数据失败，请检查 <b>sites.json</b> 是否存在</p>
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+        
+        
+        // 初始化页面
+        async function initPage() {
+            await fetchSites();
+        }
+
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>
