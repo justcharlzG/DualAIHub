@@ -11,7 +11,12 @@
     {
         "name": "秘塔AI搜索",
         "url": "https://metaso.cn/",
-        "tip": "搜索结果精准，智能推荐"
+        "tip": "搜索结果精准，智能推荐, 学术研究"
+    },
+    {
+        "name": "perplexity",
+        "url": "https://www.perplexity.ai/",
+        "tip": "专业提问，搜索结果精准，智能推荐, 学术研究"
     },
     {
         "name": "豆包",
@@ -19,13 +24,9 @@
         "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色"
     },
     {
-        "name": "纳米-满血deepseek",
-        "url": "https://bot.n.cn/"
-
-    },
-    {
         "name": "claude4",
-        "url": "https://claude.ai/"
+        "url": "https://claude.ai/",
+        "tip": "代码编程 更突出"
     },
     {
         "name": "deepseek",
@@ -33,23 +34,12 @@
     },
     {
         "name": "ChatGPT",
-        "url": "https://chatgpt.com/"
-    },
-    {
-        "name": "Gemini",
-        "url": "https://gemini.google.com/",
-        "tip": "google的，普通"
-
-    },
-    {
-        "name": "perplexity",
-        "url": "https://www.perplexity.ai/",
-        "tip": "专业提问"
+        "url": "https://chatgpt.com/",
+        "tip": "更快更强更丝滑"
     },
     {
         "name": "grok3",
         "url": "https://grok.com/",
         "tip": "马斯克开发的 twitter登录"
     }
-
 ]
