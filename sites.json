@@ -2,57 +2,54 @@
     {
         "name": "kimi",
         "url": "https://kimi.moonshot.cn/",
-        "tip": "在智能对话和文本处理方面具备一定实力，交互体验不断提升",
-        "show": false
+        "tip": "在智能对话和文本处理方面具备一定实力，交互体验不断提升"
     },
     {
         "name": "在问",
-        "url": "https://zaiwen.xueban.org.cn/chat/working-edition",
-        "show": false
+        "url": ["https://zaiwen.xueban.org.cn/chat/working-edition", "https://www.zaiwenai.com/"]
     },
     {
         "name": "秘塔AI搜索",
         "url": "https://metaso.cn/",
-        "tip": "搜索结果精准，智能推荐",
-        "show": false
+        "tip": "搜索结果精准，智能推荐"
     },
     {
         "name": "豆包",
         "url": "https://doubao.com/",
-        "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色",
-        "show": false
+        "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色"
     },
     {
         "name": "纳米-满血deepseek",
-        "url": "https://bot.n.cn/",
-        "show": false
+        "url": "https://bot.n.cn/"
 
     },
     {
         "name": "claude3.7",
-        "url": "https://claude.ai/",
-        "show": false
+        "url": "https://claude.ai/"
     },
     {
         "name": "deepseek",
-        "url": "https://chat.deepseek.com/",
-        "show": false
+        "url": "https://chat.deepseek.com/"
     },
     {
         "name": "ChatGPT",
-        "url": "https://chatgpt.com/",
-        "show": false
+        "url": "https://chatgpt.com/"
     },
     {
         "name": "Gemini",
         "url": "https://gemini.google.com/",
-        "show": false
+        "tip": "google的，普通"
+
     },
     {
         "name": "perplexity",
         "url": "https://www.perplexity.ai/",
-        "tip": "专业提问",
-        "show": false
+        "tip": "专业提问"
+    },
+    {
+        "name": "grok3",
+        "url": "https://grok.com/",
+        "tip": "马斯克开发的 twitter登录"
     }
 
 ]
