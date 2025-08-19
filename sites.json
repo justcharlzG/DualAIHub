@@ -2,7 +2,7 @@
     {
         "name": "claude4",
         "url": "https://claude.ai/",
-        "tip": "代码编程 更突出"
+        "tip": "代码编程 更突出 google登录"
     },
     {
         "name": "deepseek",
@@ -11,7 +11,7 @@
     {
         "name": "ChatGPT",
         "url": "https://chatgpt.com/",
-        "tip": "更快更强更丝滑"
+        "tip": "更快更强更丝滑 google登录"
     },
     {
         "name": "grok3",
