@@ -6,7 +6,9 @@
     },
     {
         "name": "在问",
-        "url": ["https://zaiwen.xueban.org.cn/chat/working-edition", "https://www.zaiwenai.com/"]
+        "url": ["https://zaiwen.xueban.org.cn/chat/working-edition", "https://www.zaiwenai.com/"],
+        "tip": "免费访问，大好人 可充值支持"
+    
     },
     {
         "name": "秘塔AI搜索",
