@@ -1,31 +1,5 @@
 [
     {
-        "name": "kimi",
-        "url": "https://kimi.moonshot.cn/",
-        "tip": "在智能对话和文本处理方面具备一定实力，交互体验不断提升"
-    },
-    {
-        "name": "在问",
-        "url": ["https://zaiwen.xueban.org.cn/chat/working-edition", "https://www.zaiwenai.com/"],
-        "tip": "免费访问，大好人 可充值支持"
-    
-    },
-    {
-        "name": "秘塔AI搜索",
-        "url": "https://metaso.cn/",
-        "tip": "搜索结果精准，智能推荐, 学术研究"
-    },
-    {
-        "name": "perplexity",
-        "url": "https://www.perplexity.ai/",
-        "tip": "专业提问，搜索结果精准，智能推荐, 学术研究"
-    },
-    {
-        "name": "豆包",
-        "url": "https://doubao.com/",
-        "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色"
-    },
-    {
         "name": "claude4",
         "url": "https://claude.ai/",
         "tip": "代码编程 更突出"
@@ -43,5 +17,31 @@
         "name": "grok3",
         "url": "https://grok.com/",
         "tip": "马斯克开发的 twitter登录"
+    },   
+    {
+        "name": "在问",
+        "url": ["https://zaiwen.xueban.org.cn/chat/working-edition", "https://www.zaiwenai.com/"],
+        "tip": "免费访问，大好人 可充值支持"
+    
+    },
+    {
+        "name": "kimi",
+        "url": "https://kimi.moonshot.cn/",
+        "tip": "在智能对话和文本处理方面具备一定实力，交互体验不断提升"
+    },
+    {
+        "name": "秘塔AI搜索",
+        "url": "https://metaso.cn/",
+        "tip": "搜索结果精准，智能推荐, 学术研究"
+    },
+    {
+        "name": "perplexity",
+        "url": "https://www.perplexity.ai/",
+        "tip": "专业提问，搜索结果精准，智能推荐, 学术研究"
+    },
+    {
+        "name": "豆包",
+        "url": "https://doubao.com/",
+        "tip": "知识储备丰富，能灵活处理多种类型任务，交互体验友好，在中文语境和多领域知识服务上表现出色"
     }
 ]
